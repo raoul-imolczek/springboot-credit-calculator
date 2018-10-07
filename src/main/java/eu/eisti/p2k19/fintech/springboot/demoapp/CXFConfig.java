@@ -1,6 +1,8 @@
 package eu.eisti.p2k19.fintech.springboot.demoapp;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.apache.cxf.Bus;
 import org.apache.cxf.endpoint.Server;
@@ -13,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
 import eu.eisti.p2k19.fintech.springboot.service.PricingController;
+import eu.eisti.p2k19.fintech.springboot.service.SimulationController;
 
 @Configuration
 class CXFConfig {
@@ -26,13 +29,24 @@ class CXFConfig {
       endpoint.setProvider(new JacksonJsonProvider());
       endpoint.setBus(bus);
       endpoint.setAddress("/");
-      endpoint.setServiceBeans(Arrays.<Object>asList(userController()));
+      
+      List<Object> serviceBeans = new ArrayList<Object>();
+      serviceBeans.add(pricingController());
+      serviceBeans.add(simulationController());
+      
+      endpoint.setServiceBeans(serviceBeans);
       endpoint.setFeatures(Arrays.asList(new Swagger2Feature()));
       return endpoint.create();
   }
 
   @Bean
-  public PricingController userController() {
+  public PricingController pricingController() {
       return new PricingController();
   }
+
+  @Bean
+  public SimulationController simulationController() {
+      return new SimulationController();
+  }
+
 }

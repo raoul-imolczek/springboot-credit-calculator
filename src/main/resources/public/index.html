@@ -22,40 +22,61 @@
 
             <h1>Loan simulator</h1>
 
-            <form>
-
-                <div class="form-group">
-                    <label for="loanAmount">Purchase amount</label>
-                    <div class="input-group">
-                        <input v-model="loanAmount" type="number" class="form-control" id="loanAmount" aria-describedby="loanAmountHelp" placeholder="Enter purchase amount">
-                        <div class="input-group-addon">€</div>
-                    </div>
-                    <small id="loanAmountHelp" class="form-text text-muted">What's your purchase's cost?</small>
+            <div class="form-group">
+                <label for="loanAmount">Purchase amount</label>
+                <div class="input-group">
+                    <input v-model="loanAmount" type="number" class="form-control" id="loanAmount" aria-describedby="loanAmountHelp" placeholder="Enter purchase amount">
+                    <div class="input-group-addon">€</div>
                 </div>
+                <small id="loanAmountHelp" class="form-text text-muted">What's your purchase's cost?</small>
+            </div>
 
-                <div class="form-group">
-                    <label for="initialContribution">Initial contribution</label>
-                    <div class="input-group">
-                        <input v-model="initialContribution" type="number" class="form-control" id="initialContribution" aria-describedby="initialContributionHelp" placeholder="Enter initial contribution">
-                        <div class="input-group-addon">€</div>
-                    </div>
-                    <small id="initialContributionHelp" class="form-text text-muted">What's your initial contribution?</small>
+            <div class="form-group">
+                <label for="initialContribution">Initial contribution</label>
+                <div class="input-group">
+                    <input v-model="initialContribution" type="number" class="form-control" id="initialContribution" aria-describedby="initialContributionHelp" placeholder="Enter initial contribution">
+                    <div class="input-group-addon">€</div>
                 </div>
+                <small id="initialContributionHelp" class="form-text text-muted">What's your initial contribution?</small>
+            </div>
+
+            <div class="form-group">
+                <label for="loanDuration">Duration</label>
+                <div class="input-group">
+                    <input v-model="loanDuration" type="number" class="form-control" id="loanDuration" aria-describedby="loanDurationHelp" placeholder="Enter desired loan duration">
+                    <div class="input-group-addon">months</div>
+                </div>
+                <small id="loanDurationHelp" class="form-text text-muted">What's your desired loan duration?</small>
+            </div>
+
+            <button v-on:click="simulate" type="button" class="btn btn-primary">Submit</button>
     
-                <div class="form-group">
-                    <label for="loanDuration">Duration</label>
-                    <div class="input-group">
-                        <input v-model="loanDuration" type="number" class="form-control" id="loanDuration" aria-describedby="loanDurationHelp" placeholder="Enter desired loan duration">
-                        <div class="input-group-addon">months</div>
-                    </div>
-                    <small id="loanDurationHelp" class="form-text text-muted">What's your desired loan duration?</small>
+            <div class="form-group">
+                <label for="rate">Loan Rate</label>
+                <div class="input-group">
+                    <input v-model="rate" type="number" class="form-control" id="rate" aria-describedby="rateHelp">
+                    <div class="input-group-addon">%</div>
                 </div>
+                <small id="rateHelp" class="form-text text-muted">Loan's fixed annual rate</small>
+            </div>
 
-                <button v-on:click="refreshRate" type="button" class="btn btn-primary">Submit</button>
-    
-            </form>
+            <div class="form-group">
+                <label for="apr">APR</label>
+                <div class="input-group">
+                    <input v-model="apr" type="number" class="form-control" id="apr" aria-describedby="aprHelp">
+                    <div class="input-group-addon">%</div>
+                </div>
+                <small id="aprHelp" class="form-text text-muted">Loan's APR</small>
+            </div>
 
-            <div>{{ rate }}</div>
+            <div class="form-group">
+                <label for="monthlyInstallment">Monthly installment</label>
+                <div class="input-group">
+                    <input v-model="monthlyInstallment" type="number" class="form-control" id="monthlyInstallment" aria-describedby="monthlyInstallmentHelp">
+                    <div class="input-group-addon">€</div>
+                </div>
+                <small id="monthlyInstallmentHelp" class="form-text text-muted">Your loan's monthly installment</small>
+            </div>
 
             <canvas id="myChart"></canvas>
 
