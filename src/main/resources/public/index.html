@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Loan simulator</title>
+        <meta name="description" content="Loan simulator">
+        <meta name="author" content="Fabian Bouché">        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    </head>
+
+    <body>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+        
+        <div class="container" id="app">
+
+            <h1>Loan simulator</h1>
+
+            <form>
+
+                <div class="form-group">
+                    <label for="loanAmount">Purchase amount</label>
+                    <div class="input-group">
+                        <input v-model="loanAmount" type="number" class="form-control" id="loanAmount" aria-describedby="loanAmountHelp" placeholder="Enter purchase amount">
+                        <div class="input-group-addon">€</div>
+                    </div>
+                    <small id="loanAmountHelp" class="form-text text-muted">What's your purchase's cost?</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="initialContribution">Initial contribution</label>
+                    <div class="input-group">
+                        <input v-model="initialContribution" type="number" class="form-control" id="initialContribution" aria-describedby="initialContributionHelp" placeholder="Enter initial contribution">
+                        <div class="input-group-addon">€</div>
+                    </div>
+                    <small id="initialContributionHelp" class="form-text text-muted">What's your initial contribution?</small>
+                </div>
+    
+                <div class="form-group">
+                    <label for="loanDuration">Duration</label>
+                    <div class="input-group">
+                        <input v-model="loanDuration" type="number" class="form-control" id="loanDuration" aria-describedby="loanDurationHelp" placeholder="Enter desired loan duration">
+                        <div class="input-group-addon">months</div>
+                    </div>
+                    <small id="loanDurationHelp" class="form-text text-muted">What's your desired loan duration?</small>
+                </div>
+
+                <button v-on:click="refreshRate" type="button" class="btn btn-primary">Submit</button>
+    
+            </form>
+
+            <div>{{ rate }}</div>
+
+            <canvas id="myChart"></canvas>
+
+        </div>
+
+        <script src="js/script.js"></script>
+
+    </body>
+
+</html>
