@@ -54,7 +54,7 @@
             <div class="form-group">
                 <label for="rate">Loan Rate</label>
                 <div class="input-group">
-                    <input v-model="rate" type="number" class="form-control" id="rate" aria-describedby="rateHelp">
+                    <input v-model="rate" type="number" readonly class="form-control" id="rate" aria-describedby="rateHelp">
                     <div class="input-group-addon">%</div>
                 </div>
                 <small id="rateHelp" class="form-text text-muted">Loan's fixed annual rate</small>
@@ -63,7 +63,7 @@
             <div class="form-group">
                 <label for="apr">APR</label>
                 <div class="input-group">
-                    <input v-model="apr" type="number" class="form-control" id="apr" aria-describedby="aprHelp">
+                    <input v-model="apr" type="number" readonly class="form-control" id="apr" aria-describedby="aprHelp">
                     <div class="input-group-addon">%</div>
                 </div>
                 <small id="aprHelp" class="form-text text-muted">Loan's APR</small>
@@ -72,7 +72,7 @@
             <div class="form-group">
                 <label for="monthlyInstallment">Monthly installment</label>
                 <div class="input-group">
-                    <input v-model="monthlyInstallment" type="number" class="form-control" id="monthlyInstallment" aria-describedby="monthlyInstallmentHelp">
+                    <input v-model="monthlyInstallment" readonly type="number" class="form-control" id="monthlyInstallment" aria-describedby="monthlyInstallmentHelp">
                     <div class="input-group-addon">€</div>
                 </div>
                 <small id="monthlyInstallmentHelp" class="form-text text-muted">Your loan's monthly installment</small>
